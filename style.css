@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+.container {
+  width: 360px;
+  height: 640px;
+  margin: 100px auto;
+  background-color: #dedede;
+}
+.headerInterno {
+  display: flex;
+  padding: 10px;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid #999;
+}
+.headerInterno img {
+  width: 50%;
+}
+.headerInterno button {
+  padding: 5px;
+  display: block;
+  width: 50px;
+  height: 50px;
+}
+.headerInterno button i {
+  font-size: 15px;
+}
+button {
+  padding: 12px 24px;
+  border-radius: 4px;
+  border: 1px solid #999;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+img {
+  max-width: 100%;
+}
+
+#tela1 {
+  display: none;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+#tela1 img {
+  width: 80%;
+  margin: auto;
+  display: block;
+}
+
+#tela2 {
+  display: none;
+  flex-direction: column;
+  height: 100%;
+}
+#tela2 .veicles {
+  padding: 20px 10px 10px 10px;
+}
+#tela2 .veicles .headerVeicles {
+  display: flex;
+  border-bottom: 1px solid #999;
+  margin-bottom: 20px;
+}
+#tela2 .veicles .headerVeicles div {
+  margin: 0 10px;
+  width: 25%;
+}
+#tela2 .veicles .listVeicles {
+  overflow: overlay;
+  height: 460px;
+}
+#tela2 .veicles .listVeicles div.veicle {
+  display: flex;
+  align-items: center;
+  background-color: #fafafa;
+}
+#tela2 .veicles .listVeicles div.veicle div button {
+  width: 25px;
+  height: 25px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}
+
+#tela2 .veicles .listVeicles div.veicle.zebra {
+  background-color: #c5c4c4;
+}
+#tela2 .veicles .listVeicles div.veicle div {
+  margin: 5px 10px;
+  width: 22%;
+}
+#tela2 .veicles .listVeicles div.veicle div.placa {
+  margin: 0 10px;
+  width: 40%;
+}
+#tela2 .veicles .listVeicles div.veicle div.actions {
+  display: flex;
+}
+
+#tela3 {
+  display: none;
+  flex-direction: column;
+  height: 100%;
+}
+#tela3 div {
+  padding: 20px 10px 10px 10px;
+}
+#tela3 form {
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #999;
+  padding: 10px;
+  box-sizing: border-box;
+}
+#tela3 form input {
+  padding: 20px 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+#tela3 form .actions {
+  display: flex;
+}
+#tela3 form button {
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  box-sizing: border-box;
+  margin: 10px;
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Estacionamento</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div id="tela1">
+        <div>
+          <img src="logo.png" alt="" />
+        </div>
+        <div>
+          <h3>Sistema de Estacionamento</h3>
+        </div>
+        <div>
+          <button id="entrar">Entrar</button>
+        </div>
+      </div>
+      <!--  Fim tela 1 -->
+
+      <div id="tela2">
+        <div class="headerInterno">
+          <img src="logo.png" alt="" />
+          <button id="addCar">
+            <i class="fas fa-chevron-circle-down"></i>
+          </button>
+          <!-- <button><i class="fas fa-chevron-circle-right"></i></button> -->
+        </div>
+        <div class="veicles">
+          <div class="headerVeicles">
+            <div>Placa</div>
+            <div>Modelo</div>
+            <div>Entrada</div>
+            <div></div>
+          </div>
+
+          <div class="listVeicles">
+            <div class="veicle">
+              <div class="placa">fgq-3824</div>
+              <div>Celta</div>
+              <div>15:32</div>
+              <div class="actions">
+                <button>
+                  <i class="fas fa-chevron-circle-right"></i>
+                </button>
+                <button id="EditCar">
+                  <i class="fas fa-edit"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="veicle zebra">
+              <div class="placa">fgq-3824</div>
+              <div>Celta</div>
+              <div>15:32</div>
+              <div class="actions">
+                <button>
+                  <i class="fas fa-chevron-circle-right"></i>
+                </button>
+                <button id="EditCar">
+                  <i class="fas fa-edit"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  Fim tela 2 -->
+
+      <div id="tela3">
+        <div class="headerInterno">
+          <img src="logo.png" alt="" />
+          <button id="addCar">
+            <i class="fas fa-chevron-circle-down"></i>
+          </button>
+          <!-- <button><i class="fas fa-chevron-circle-right"></i></button> -->
+        </div>
+        <div>
+          <form action="#" method="POST">
+            <h2>Entrada de Veiculo</h2>
+            <label for="placa">Placa</label>
+            <input
+              type="text"
+              name="placa"
+              id="placa"
+              placeholder="AAA - 8088"
+            />
+
+            <label for="modelo">Modelo</label>
+            <input type="text" name="modelo" id="modelo" placeholder="Celta" />
+            <div class="actions">
+              <button id="EnviaCar">Enviar</button>
+              <button id="Cancelar">Cancelar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!--  Fim tela 2 -->
+    </div>
+  </body>
+
+  <script src="script.js"></script>
+</html>
