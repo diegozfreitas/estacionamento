@@ -28,10 +28,7 @@ document.getElementById("EnviaCar").addEventListener("click", function () {
 });
 
 document.getElementById("removerCar2").addEventListener("click", function(){
-  document.getElementById("placa2").textContent ="";
-  document.getElementById("modelo2").textContent = "";
-  document.getElementById("entrada2").textContent = "";
-  var lista = document.getElementsByClassName('ul')[0];
-  var itens = lista.getElementsByTagName('div');
-  lista.removeChild(itens[1])
+  var carro = document.getElementById("veicle zebra");
+  var parent = carro.parentNode;
+  parent.removeChild(carro); 
 })
