@@ -48,11 +48,12 @@
 
           <div class="listVeicles">
             <div class="veicle">
+
               <div class="placa">fgq-3824</div>
-              <div>Celta</div>
-              <div>15:32</div>
+              <div id="modelo">Celta</div>
+              <div id="entrada">15:32</div>
               <div class="actions">
-                <button>
+                <button id="removerCar">
                   <i class="fas fa-chevron-circle-right"></i>
                 </button>
                 <button id="EditCar">
@@ -62,11 +63,11 @@
             </div>
 
             <div class="veicle zebra">
-              <div class="placa">fgq-3824</div>
-              <div>Celta</div>
-              <div>15:32</div>
+              <div id="placa2">fgq-3824</div>
+              <div id="modelo2">Celta</div>
+              <div id="entrada2">15:32</div>
               <div class="actions">
-                <button>
+                <button id="removerCar2">
                   <i class="fas fa-chevron-circle-right"></i>
                 </button>
                 <button id="EditCar">
@@ -74,7 +75,18 @@
                 </button>
               </div>
             </div>
-          </div>
+            <div id="novoCarro">
+              <div id="novaPlaca">
+              
+              </div>
+              <div id="novoModelo">
+
+              </div>
+              <div id="novaEntrada">
+
+              </div>
+            </div>
+        </div>
         </div>
       </div>
       <!--  Fim tela 2 -->
@@ -104,7 +116,7 @@
             <label for="Entrada">Entrada</label>
             <input type="text" name="Entrada" id="Entrada" placeholder="00:00" > 
             <div class="actions">
-              <button id="EnviaCar">Enviar</button>
+              <button type="button" id="EnviaCar">Enviar</button>
               <button id="Cancelar">Cancelar</button>
             </div>
           </form>
