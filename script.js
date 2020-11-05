@@ -9,8 +9,8 @@ puxaVeiculos = () => {
     document.querySelector(".listVeicles").innerHTML += `
       <div class="veicle ${veicle.id % 2 ? "zebra" : ""} ">
         <div class="placa">${veicle.placa}</div>
-        <div>${veicle.modelo}</div>
-        <div>${veicle.entrada}</div>
+        <div class="modelo">${veicle.modelo}</div>
+        <div class="entrada">${veicle.entrada}</div>
         <div class="actions">
           <button id ="removerCar">
             <i class="fas fa-chevron-circle-right"></i>
@@ -27,7 +27,6 @@ puxaVeiculos = () => {
 document.querySelector("#entrar").addEventListener("click", () => {
   document.querySelector("#tela1").style.display = "none";
   document.querySelector("#tela2").style.display = "flex";
-  puxaVeiculos();
 });
 
 document.querySelector("#addCar").addEventListener("click", () => {
@@ -54,12 +53,4 @@ document.querySelector("#EnviaCar").addEventListener("click",(event)=>{
 
   puxaVeiculos();
 })
-park.veicle.forEach((item) => {
-  var duplicated  = reduced.findIndex(redItem => {
-      return item.a == redItem.a;
-  }) > -1;
 
-  if(!duplicated) {
-      reduced.push(item);
-  }
-});
