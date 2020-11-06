@@ -1,11 +1,11 @@
-document.querySelector("#tela1").style.display = "flex";
+document.querySelector("#tela1").style.display = "flex"; //alteração para exibir a tela
 
-const park = {
+const park = { // objeto que pega as informaçoes para criar o veiculo
   veicle: [],
 };
 
 
-puxaVeiculos = () => {
+puxaVeiculos = () => { // função que escreve as informações do veiculo no html
   park.veicle.map((veicle) => {
     document.querySelector(".listVeicles").innerHTML += `
       <div class="veicle ${veicle.id % 2 ? "zebra" : ""} ">
@@ -25,20 +25,20 @@ puxaVeiculos = () => {
   });
 };
 
-document.querySelector("#entrar").addEventListener("click", () => {
+document.querySelector("#entrar").addEventListener("click", () => { // função que muda o display da tela 1 e 2
   document.querySelector("#tela1").style.display = "none";
   document.querySelector("#tela2").style.display = "flex";
   
 });
 
-document.querySelector("#addCar").addEventListener("click", () => {
+document.querySelector("#addCar").addEventListener("click", () => { // função que muda o display da tela 2 e 3
   document.querySelector("#tela2").style.display = "none";
   document.querySelector("#tela3").style.display = "flex";
-  for(var i=0; i<carroEstacionado.carro.length; i++) {
+  for(var i=0; i<carroEstacionado.carro.length; i++) { // posivelmente a função que conserto o bug 
     delete carroEstacionado.carro[i];
 }
 });
-document.querySelector("#EnviaCar").addEventListener("click", (event) => {
+document.querySelector("#EnviaCar").addEventListener("click", (event) => { // função que coleta as informações que serão atribuidas ao veiculo  
   event.preventDefault();
 
   if (
@@ -64,13 +64,13 @@ document.querySelector("#EnviaCar").addEventListener("click", (event) => {
     entrada: entradaform,
   });
 
-  document.querySelector("#tela3").style.display = "none";
+  document.querySelector("#tela3").style.display = "none"; //mudança no display da tela 3 e da tela 2 
   document.querySelector("#tela2").style.display = "flex";
 
   puxaVeiculos();
   console.log(carroEstacionado)
 });
 
-const carroEstacionado = { 
+const carroEstacionado = { //objeto que mantem o veiculo inteiro
    carro : park.veicle,
 }
