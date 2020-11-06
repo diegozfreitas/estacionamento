@@ -9,7 +9,7 @@ puxaVeiculos = () => {
   park.veicle.map((veicle) => {
     document.querySelector(".listVeicles").innerHTML += `
       <div class="veicle ${veicle.id % 2 ? "zebra" : ""} ">
-        <div class="placa">${veicle.carros}</div>
+        <div class="placa">${veicle.placa}</div>
         <div class="modelo">${veicle.modelo}</div>
         <div class="entrada">${veicle.entrada}</div>
         <div class="actions">
@@ -28,11 +28,15 @@ puxaVeiculos = () => {
 document.querySelector("#entrar").addEventListener("click", () => {
   document.querySelector("#tela1").style.display = "none";
   document.querySelector("#tela2").style.display = "flex";
+  
 });
 
 document.querySelector("#addCar").addEventListener("click", () => {
   document.querySelector("#tela2").style.display = "none";
   document.querySelector("#tela3").style.display = "flex";
+  for(var i=0; i<carroEstacionado.carro.length; i++) {
+    delete carroEstacionado.carro[i];
+}
 });
 document.querySelector("#EnviaCar").addEventListener("click", (event) => {
   event.preventDefault();
