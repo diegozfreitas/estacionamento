@@ -13,7 +13,7 @@ puxaVeiculos = () => { // função que escreve as informações do veiculo no ht
         <div class="modelo">${veicle.modelo}</div>
         <div class="entrada">${veicle.entrada}</div>
         <div class="actions">
-          <button id ="removerCar">
+          <button onclick="removerCarro()" id ="removerCar">
             <i class="fas fa-chevron-circle-right"></i>
           </button>
           <button id="EditCar">
@@ -34,8 +34,8 @@ document.querySelector("#entrar").addEventListener("click", () => { // função 
 document.querySelector("#addCar").addEventListener("click", () => { // função que muda o display da tela 2 e 3
   document.querySelector("#tela2").style.display = "none";
   document.querySelector("#tela3").style.display = "flex";
-  for(var i=0; i<carroEstacionado.carro.length; i++) { // posivelmente a função que conserto o bug 
-    delete carroEstacionado.carro[i];
+  for(var i=0; i<park.veicle.length; i++) { // posivelmente a função que conserto o bug 
+    delete park.veicle[i];
 }
 });
 document.querySelector("#EnviaCar").addEventListener("click", (event) => { // função que coleta as informações que serão atribuidas ao veiculo  
@@ -68,9 +68,14 @@ document.querySelector("#EnviaCar").addEventListener("click", (event) => { // fu
   document.querySelector("#tela2").style.display = "flex";
 
   puxaVeiculos();
-  console.log(carroEstacionado)
 });
 
-const carroEstacionado = { //objeto que mantem o veiculo inteiro
-   carro : park.veicle,
+function removerCarro(){
+  park.veicle.shift()
+  console.log(park.veicle)
+  remoção();
+}
+
+function remoção(){
+  document.querySelector(".veicle").textContent ="";
 }
