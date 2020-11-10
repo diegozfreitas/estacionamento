@@ -36,7 +36,7 @@ document.querySelector("#addCar").addEventListener("click", () => { // função 
   document.querySelector("#tela3").style.display = "flex";
   for(var i=0; i<park.veicle.length; i++) { // posivelmente a função que conserto o bug 
     delete park.veicle[i];
-}
+  }
 });
 document.querySelector("#EnviaCar").addEventListener("click", (event) => { // função que coleta as informações que serão atribuidas ao veiculo  
   event.preventDefault();
@@ -68,14 +68,18 @@ document.querySelector("#EnviaCar").addEventListener("click", (event) => { // fu
   document.querySelector("#tela2").style.display = "flex";
 
   puxaVeiculos();
+
 });
 
 function removerCarro(){
-  park.veicle.shift()
-  console.log(park.veicle)
-  remoção();
+  park.veicle.shift();
+  var pai = document.querySelector(".listVeicles");
+  var ve = document.querySelector(".veicle")
+  pai.removeChild(ve)
 }
 
-function remoção(){
-  document.querySelector(".veicle").textContent ="";
-}
+park.veicle.forEach(element => {
+  removerCarro();
+});
+
+  
