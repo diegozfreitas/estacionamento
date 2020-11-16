@@ -67,9 +67,6 @@ document.querySelector("#EnviaCar").addEventListener("click", (event) => {
   document.querySelector("#tela3").style.display = "none"; //mudança no display da tela 3 e da tela 2
   document.querySelector("#tela2").style.display = "flex";
 
-  document.querySelector("input#placa").value = "";
-  document.querySelector("input#modelo").value = "";
-  document.querySelector("input#entrada").value = "";
 
   puxaVeiculos();
 
@@ -86,21 +83,25 @@ function removerCarro() {
 
 function editarCarro(){
 
+  removerCarro();
+
   document.querySelector("#tela2").style.display = "none";
   document.querySelector("#tela3").style.display = "flex";
-
-  var placa2 = document.querySelector(".placa").textContent;
-  var modelo2 = document.querySelector(".modelo").textContent;
-  var entrada2 = document.querySelector(".entrada").textContent;
 
   var placaform2 = document.querySelector("#tela3").querySelector("input#placa").value;
   var modeloform2 = document.querySelector("#tela3").querySelector("input#modelo").value;
   var entradaform2 = document.querySelector("#tela3").querySelector("input#entrada").value;
 
+  console.log(park.veicle)
+
   document.querySelector("#EnviaCar").addEventListener("click", () => {
-    placa2 = placaform2;
-    modelo2 = modeloform2;
-    entrada2 = entradaform2;
+
+    park.veicle.forEach(item => {
+      item.placa = placaform2;
+      item.modelo = modeloform2;
+      item.entrada = entradaform2;
+    });
+    console.log(park.veicle)
   })
 
 } 
