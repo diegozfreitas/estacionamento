@@ -78,9 +78,7 @@ document.querySelector("#EnviaCar").addEventListener("click", (event) => {
     .querySelector("#tela3")
     .querySelector("input#modelo").value;
 
-  if(park.veicle.find(veicle => veicle.placa === placaform)){
-    park.veicle.find(veicle => veicle.placa === placaform).placa = placaform;
-    park.veicle.find(veicle => veicle.placa === placaform).modelo = modeloform;
+  if(park.veicle.find(veicle => veicle.placa == placaform)){
     console.log("edita")
   }else{
     console.log("guarda")
