@@ -2,7 +2,7 @@ document.querySelector("#tela1").style.display = "flex"; //alteração para exib
 
 const park = {
   // objeto que pega as informaçoes para criar o veiculo
-  veicle: [{placa :"vrt-4323",modelo:"mclaren"}],
+  veicle: [{placa :"vrt4323",modelo:"mclaren"}],
 };
 
 puxaVeiculos = () => {
@@ -51,6 +51,8 @@ document.querySelector("#entrar").addEventListener("click", () => {
   document.querySelector("#tela1").style.display = "none";
   document.querySelector("#tela2").style.display = "flex";
 
+  console.log(park.veicle)
+
   puxaVeiculos();
 });
 
@@ -58,6 +60,9 @@ document.querySelector("#addCar").addEventListener("click", () => {
   // função que muda o display da tela 2 e 3
   document.querySelector("#tela2").style.display = "none";
   document.querySelector("#tela3").style.display = "flex";
+
+  document.querySelector("#tela3").querySelector("input#placa").value = "";
+  document.querySelector("#tela3").querySelector("input#modelo").value = "";
 
 });
 document.querySelector("#EnviaCar").addEventListener("click", (event) => {
@@ -77,8 +82,8 @@ document.querySelector("#EnviaCar").addEventListener("click", (event) => {
     .querySelector("input#modelo").value;
 
   if(park.veicle.find(veicle => veicle.placa == placaform)){
-    park.veicle.find(veicle => veicle.placa == placaform).placa = placaform;
-    park.veicle.find(veicle => veicle.placa == placaform).modelo = modeloform;
+    var placaEdit = park.veicle.find(veicle => veicle.placa == placaform).placa = placaform;
+    var modeloEdit = park.veicle.find(veicle => veicle.placa == placaform).modelo = modeloform;
     console.log("edita")
   }else{
     console.log("guarda")
@@ -103,7 +108,7 @@ document.querySelector("#Cancelar").addEventListener("click", (cancel) => {
   document.querySelector("#tela2").style.display = "flex";
 });
 
-function removerCarro() {
+function removerCarro(){
   park.veicle.shift();
   var pai = document.querySelector(".listVeicles");
   var ve = document.querySelector(".veicle");
