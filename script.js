@@ -8,14 +8,18 @@ const park = {
 puxaVeiculos = () => {
   // função que escreve as informações do veiculo no html
   document.querySelector(".listVeicles").innerHTML = "";
+
+  var count = 0
+
   park.veicle.map((veicle) => {
+    count++
     document.querySelector(".listVeicles").innerHTML += `
-      <div class="veicle ${veicle.id % 2 ? "zebra" : ""} ">
+      <div class="veicle ${count % 2 ? "zebra" : ""} ">
         <div class="placa">${veicle.placa}</div>
         <div class="modelo">${veicle.modelo}</div>
         <div>${veicle.entrada}</div>
         <div class="actions">
-          <button onclick="removerCarro()" id ="removerCar">
+          <button id ="removerCar">
             <i class="fas fa-chevron-circle-right"></i>
           </button>
           <button id="EditCar">
@@ -44,8 +48,27 @@ puxaVeiculos = () => {
       document.querySelector("form button#EnviaCar").textContent = "atualizar";
     });
   });
+
+  var BTsDeleteCar = document.querySelectorAll("#removerCar");
+
+  BTsDeleteCar.forEach((bt) => {
+    bt.addEventListener("click", ()=>{
+      var element = bt.parentElement.parentElement.querySelector(".placa").textContent;
+      var deletar = confirm(
+        `pressione "ok" para excluir o veiculo placa "${element}"`
+      );
+      if(deletar == true){
+      deleteveiculo(element);
+      }
+    } )
+  })
 };
 
+deleteveiculo =(element) =>{
+  var index =park.veicle.findIndex((v)=> v.placa == element)
+  park.veicle.splice(index, 1)
+  puxaVeiculos();   
+}
 document.querySelector("#entrar").addEventListener("click", () => {
   // função que muda o display da tela 1 e 2
   document.querySelector("#tela1").style.display = "none";
@@ -64,6 +87,7 @@ document.querySelector("#addCar").addEventListener("click", () => {
   document.querySelector("#tela3").querySelector("input#placa").value = "";
   document.querySelector("#tela3").querySelector("input#modelo").value = "";
 
+  document.querySelector("form button#EnviaCar").textContent = "enviar";
 });
 document.querySelector("#EnviaCar").addEventListener("click", (event) => {
   // função que coleta as informações que serão atribuidas ao veiculo
@@ -81,9 +105,10 @@ document.querySelector("#EnviaCar").addEventListener("click", (event) => {
     .querySelector("#tela3")
     .querySelector("input#modelo").value;
 
-  if(park.veicle.find(veicle => veicle.placa == placaform)){
-    var placaEdit = park.veicle.find(veicle => veicle.placa == placaform).placa = placaform;
-    var modeloEdit = park.veicle.find(veicle => veicle.placa == placaform).modelo = modeloform;
+
+  if(park.veicle.find((veicle) => veicle.placa == placaform)){
+    park.veicle.find((veicle) => veicle.placa == placaform).placa = placaform;
+    park.veicle.find((veicle) => veicle.placa == placaform).modelo = modeloform;
     console.log("edita")
   }else{
     console.log("guarda")
@@ -101,6 +126,7 @@ document.querySelector("#EnviaCar").addEventListener("click", (event) => {
   console.log(park.veicle);
 });
 
+
 document.querySelector("#Cancelar").addEventListener("click", (cancel) => {
   cancel.preventDefault();
 
@@ -108,10 +134,3 @@ document.querySelector("#Cancelar").addEventListener("click", (cancel) => {
   document.querySelector("#tela2").style.display = "flex";
 });
 
-function removerCarro(){
-  park.veicle.shift();
-  var pai = document.querySelector(".listVeicles");
-  var ve = document.querySelector(".veicle");
-  pai.removeChild(ve);
-  console.log(park.veicle);
-}
