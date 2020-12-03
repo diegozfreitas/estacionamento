@@ -57,7 +57,7 @@ puxaVeiculos = () => {
       var deletar = confirm(
         `pressione "ok" para excluir o veiculo placa "${element}"`
       );
-      if(deletar == true){
+      if(deletar = true){
       deleteveiculo(element);
       }
     } )
@@ -105,15 +105,17 @@ document.querySelector("#EnviaCar").addEventListener("click", (event) => {
     .querySelector("#tela3")
     .querySelector("input#modelo").value;
 
-  if(park.veicle.find((veicle) => veicle.placa = placaform)){
-    park.veicle.find((veicle) => veicle.placa = placaform).placa = placaform;
-    park.veicle.find((veicle) => veicle.placa = placaform).modelo = modeloform;
-    console.log("edita")
+  var now = new Date
+  var horario = now.getHours() + ":" + now.getMinutes();
+
+  if(park.veicle.find((veicle) => veicle.placa = placaform )){
+    park.veicle.find((veicle) => veicle.placa).placa = placaform;
+    park.veicle.find((veicle) => veicle.placa).modelo = modeloform;
   }else{
-    console.log("guarda")
     park.veicle.push({
       placa: placaform,
       modelo: modeloform,
+      entrada : horario,
     });
   }
 
