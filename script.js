@@ -2,7 +2,7 @@ document.querySelector("#tela1").style.display = "flex"; //alteração para exib
 
 const park = {
   // objeto que pega as informaçoes para criar o veiculo
-  veicle: [{placa :"vrt4323",modelo:"mclaren"}],
+  veicle: [],
 };
 
 puxaVeiculos = () => {
@@ -108,7 +108,7 @@ document.querySelector("#EnviaCar").addEventListener("click", (event) => {
   var now = new Date
   var horario = now.getHours() + ":" + now.getMinutes();
 
-  if(park.veicle.find((veicle) => veicle.placa = placaform )){
+  if(park.veicle.find((veicle) => veicle.placa === placaform )){
     park.veicle.find((veicle) => veicle.placa).placa = placaform;
     park.veicle.find((veicle) => veicle.placa).modelo = modeloform;
   }else{
