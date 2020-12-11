@@ -31,7 +31,11 @@ puxaVeiculos = () => {
   });
   var BTsEdit = document.querySelectorAll("#EditCar");
 
+
   BTsEdit.forEach((bt) => {
+
+  edição()
+
     bt.addEventListener("click", () => {
       var element = bt.parentElement.parentElement;
 
@@ -108,16 +112,12 @@ document.querySelector("#EnviaCar").addEventListener("click", (event) => {
   var now = new Date
   var horario = now.getHours() + ":" + now.getMinutes();
 
-  if(park.veicle.find((veicle) => veicle.placa === placaform )){
-    park.veicle.find((veicle) => veicle.placa).placa = placaform;
-    park.veicle.find((veicle) => veicle.placa).modelo = modeloform;
-  }else{
     park.veicle.push({
       placa: placaform,
       modelo: modeloform,
       entrada : horario,
     });
-  }
+  
 
   document.querySelector("#tela3").style.display = "none"; //mudança no display da tela 3 e da tela 2
   document.querySelector("#tela2").style.display = "flex";
@@ -135,3 +135,17 @@ document.querySelector("#Cancelar").addEventListener("click", (cancel) => {
   document.querySelector("#tela2").style.display = "flex";
 });
 
+function edição(){ 
+document.querySelector("#EnviaCar").addEventListener("click", (event) => {
+  event.preventDefault();
+
+  var placaform = document.querySelector("#tela3").querySelector("input#placa")
+    .value;
+  var modeloform = document
+    .querySelector("#tela3")
+    .querySelector("input#modelo").value;
+
+    park.veicle.find((veicle) => veicle.placa).placa = placaform;
+    park.veicle.find((veicle) => veicle.placa).modelo = modeloform;
+});
+}
