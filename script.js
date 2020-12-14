@@ -9,10 +9,10 @@ puxaVeiculos = () => {
   // função que escreve as informações do veiculo no html
   document.querySelector(".listVeicles").innerHTML = "";
 
-  var count = 0
+  var count = 0;
 
   park.veicle.map((veicle) => {
-    count++
+    count++;
     document.querySelector(".listVeicles").innerHTML += `
       <div class="veicle ${count % 2 ? "zebra" : ""} ">
         <div class="placa">${veicle.placa}</div>
@@ -31,10 +31,8 @@ puxaVeiculos = () => {
   });
   var BTsEdit = document.querySelectorAll("#EditCar");
 
-
   BTsEdit.forEach((bt) => {
-
-  edição()
+    edição();
 
     bt.addEventListener("click", () => {
       var element = bt.parentElement.parentElement;
@@ -56,29 +54,30 @@ puxaVeiculos = () => {
   var BTsDeleteCar = document.querySelectorAll("#removerCar");
 
   BTsDeleteCar.forEach((bt) => {
-    bt.addEventListener("click", ()=>{
-      var element = bt.parentElement.parentElement.querySelector(".placa").textContent;
+    bt.addEventListener("click", () => {
+      var element = bt.parentElement.parentElement.querySelector(".placa")
+        .textContent;
       var deletar = confirm(
         `pressione "ok" para excluir o veiculo placa "${element}"`
       );
-      if(deletar = true){
-      deleteveiculo(element);
+      if ((deletar = true)) {
+        deleteveiculo(element);
       }
-    } )
-  })
+    });
+  });
 };
 
-deleteveiculo =(element) =>{
-  var index =park.veicle.findIndex((v)=> v.placa == element)
-  park.veicle.splice(index, 1)
-  puxaVeiculos();   
-}
+deleteveiculo = (element) => {
+  var index = park.veicle.findIndex((v) => v.placa == element);
+  park.veicle.splice(index, 1);
+  puxaVeiculos();
+};
 document.querySelector("#entrar").addEventListener("click", () => {
   // função que muda o display da tela 1 e 2
   document.querySelector("#tela1").style.display = "none";
   document.querySelector("#tela2").style.display = "flex";
 
-  console.log(park.veicle)
+  console.log(park.veicle);
 
   puxaVeiculos();
 });
@@ -109,15 +108,14 @@ document.querySelector("#EnviaCar").addEventListener("click", (event) => {
     .querySelector("#tela3")
     .querySelector("input#modelo").value;
 
-  var now = new Date
+  var now = new Date();
   var horario = now.getHours() + ":" + now.getMinutes();
 
-    park.veicle.push({
-      placa: placaform,
-      modelo: modeloform,
-      entrada : horario,
-    });
-  
+  park.veicle.push({
+    placa: placaform,
+    modelo: modeloform,
+    entrada: horario,
+  });
 
   document.querySelector("#tela3").style.display = "none"; //mudança no display da tela 3 e da tela 2
   document.querySelector("#tela2").style.display = "flex";
@@ -127,7 +125,6 @@ document.querySelector("#EnviaCar").addEventListener("click", (event) => {
   console.log(park.veicle);
 });
 
-
 document.querySelector("#Cancelar").addEventListener("click", (cancel) => {
   cancel.preventDefault();
 
@@ -135,17 +132,24 @@ document.querySelector("#Cancelar").addEventListener("click", (cancel) => {
   document.querySelector("#tela2").style.display = "flex";
 });
 
-function edição(){ 
-document.querySelector("#EnviaCar").addEventListener("click", (event) => {
-  event.preventDefault();
-
-  var placaform = document.querySelector("#tela3").querySelector("input#placa")
-    .value;
+function edição() {
+  var placaform = document
+    .querySelector("#tela3")
+    .querySelector("input#placa").value;
   var modeloform = document
     .querySelector("#tela3")
     .querySelector("input#modelo").value;
 
-    park.veicle.find((veicle) => veicle.placa).placa = placaform;
-    park.veicle.find((veicle) => veicle.placa).modelo = modeloform;
-});
+  var EditPlaca = park.veicle.find((veicle) => veicle.placa).placa = placaform;
+  var Editmodelo = park.veicle.find((veicle) => veicle.placa).modelo = modeloform;
+
+  var PlacaPEdit = document.querySelector(".placa").value;
+  var ModeloPEdit = document.querySelector(".placa").value;
+
+  document.querySelector("#EnviaCar").addEventListener("click", (event) => {
+    event.preventDefault();
+
+    PlacaPEdit = EditPlaca
+    ModeloPEdit = Editmodelo
+  });
 }
