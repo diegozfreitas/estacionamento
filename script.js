@@ -140,16 +140,16 @@ function edição() {
     .querySelector("#tela3")
     .querySelector("input#modelo").value;
 
-  var EditPlaca = park.veicle.find((veicle) => veicle.placa).placa = placaform;
-  var Editmodelo = park.veicle.find((veicle) => veicle.placa).modelo = modeloform;
+  park.veicle.find((veicle) => veicle.placa).placa = placaform;
+  park.veicle.find((veicle) => veicle.placa).modelo = modeloform;
 
-  var PlacaPEdit = document.querySelector(".placa").value;
-  var ModeloPEdit = document.querySelector(".placa").value;
 
   document.querySelector("#EnviaCar").addEventListener("click", (event) => {
     event.preventDefault();
 
-    PlacaPEdit = EditPlaca
-    ModeloPEdit = Editmodelo
+    console.log("errou")
+
+    document.querySelector(".placa").textContent = placaform;
+    document.querySelector(".modelo").textContent = modeloform;
   });
 }
