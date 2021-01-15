@@ -2,7 +2,7 @@ document.querySelector("#tela1").style.display = "flex"; //alteração para exib
 
 const park = {
   // objeto que pega as informaçoes para criar o veiculo
-  veicle: [],
+veicle: [{placa : "mosmwow", modelo : "mxmoexm", entrada : "12:32"}],
 };
 
 puxaVeiculos = () => {
@@ -32,11 +32,12 @@ puxaVeiculos = () => {
   var BTsEdit = document.querySelectorAll("#EditCar");
 
   BTsEdit.forEach((bt) => {
-    edição();
-
+    
     bt.addEventListener("click", () => {
       var element = bt.parentElement.parentElement;
 
+      edit();
+      
       document.querySelector("#tela2").style.display = "none";
       document.querySelector("#tela3").style.display = "flex";
 
@@ -53,8 +54,8 @@ puxaVeiculos = () => {
 
   var BTsDeleteCar = document.querySelectorAll("#removerCar");
 
-  BTsDeleteCar.forEach((bt) => {
-    bt.addEventListener("click", () => {
+  BTsDeleteCar.forEach((bt2) => {
+    bt2.addEventListener("click", () => {
       var element = bt.parentElement.parentElement.querySelector(".placa")
         .textContent;
       var deletar = confirm(
@@ -87,8 +88,6 @@ document.querySelector("#addCar").addEventListener("click", () => {
   document.querySelector("#tela2").style.display = "none";
   document.querySelector("#tela3").style.display = "flex";
 
-  document.querySelector("#tela3").querySelector("input#placa").value = "";
-  document.querySelector("#tela3").querySelector("input#modelo").value = "";
 
   document.querySelector("form button#EnviaCar").textContent = "enviar";
 });
@@ -111,11 +110,8 @@ document.querySelector("#EnviaCar").addEventListener("click", (event) => {
   var now = new Date();
   var horario = now.getHours() + ":" + now.getMinutes();
 
-  park.veicle.push({
-    placa: placaform,
-    modelo: modeloform,
-    entrada: horario,
-  });
+  //park.veicle.push({placa : placaform , modelo : modeloform , entrada : horario})
+  
 
   document.querySelector("#tela3").style.display = "none"; //mudança no display da tela 3 e da tela 2
   document.querySelector("#tela2").style.display = "flex";
@@ -132,24 +128,18 @@ document.querySelector("#Cancelar").addEventListener("click", (cancel) => {
   document.querySelector("#tela2").style.display = "flex";
 });
 
-function edição() {
-  var placaform = document
-    .querySelector("#tela3")
-    .querySelector("input#placa").value;
-  var modeloform = document
-    .querySelector("#tela3")
-    .querySelector("input#modelo").value;
 
-  park.veicle.find((veicle) => veicle.placa).placa = placaform;
-  park.veicle.find((veicle) => veicle.placa).modelo = modeloform;
-
-
-  document.querySelector("#EnviaCar").addEventListener("click", (event) => {
-    event.preventDefault();
-
-    console.log("errou")
-
-    document.querySelector(".placa").textContent = placaform;
-    document.querySelector(".modelo").textContent = modeloform;
-  });
+function edit(){
+  puxaVeiculos();
+  var placaform = document.querySelector("#tela3").querySelector("input#placa").value;
+  var modeloform = document.querySelector("#tela3").querySelector("input#modelo").value;
+  console.log("mod")
+  document.querySelector("#EnviaCar").addEventListener("click" , (e)=>{
+    e.preventDefault();
+    park.veicle.find((veicle)=> veicle.placa).placa = placaform;
+    document.querySelector(".placa").textContent =placaform;
+    document.querySelector(".modelo").textContent =modeloform;
+    console.log(park.veicle);
+    puxaVeiculos();
+  })
 }
