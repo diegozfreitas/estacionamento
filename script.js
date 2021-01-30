@@ -71,9 +71,9 @@ puxaVeiculos = () => {
 
   var BTsDeleteCar = document.querySelectorAll("#removerCar");
 
-  BTsDeleteCar.forEach((bt2) => {
-    bt2.addEventListener("click", () => {
-      var element = bt.parentElement.parentElement.querySelector(".placa")
+  BTsDeleteCar.forEach((bt3) => {
+    bt3.addEventListener("click", () => {
+      var element = bt3.parentElement.parentElement.querySelector(".placa")
         .textContent;
       var deletar = confirm(
         `pressione "ok" para excluir o veiculo placa "${element}"`
